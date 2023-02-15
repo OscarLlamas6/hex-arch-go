@@ -1,0 +1,19 @@
+version: '3.8'   
+services:  
+    auth-postgres:
+      container_name: auth-postgres
+      hostname: auth-postgres
+      image: postgres
+      ports:
+        - "5432:5432"
+      restart: unless-stopped
+      env_file:
+        - dbcredentials.env
+      volumes:
+        - ./data/volumes/myproject/auth-postgres:/var/lib/postgresql/data/
+      networks:
+        - docker-postgres
+
+networks:
+  docker-postgres:
+    driver: bridge
