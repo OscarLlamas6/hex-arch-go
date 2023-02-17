@@ -1,6 +1,11 @@
 package entity
 
-import "time"
+import (
+	"fmt"
+	"time"
+
+	"github.com/OscarLlamas6/hex-arch-go/settings"
+)
 
 type (
 	// Struct that represents a expense entity
@@ -13,3 +18,7 @@ type (
 		Date        time.Time
 	}
 )
+
+func (Expense) TableName() string {
+	return fmt.Sprintf("%s.expenses", settings.AppConfig.DBSchema)
+}

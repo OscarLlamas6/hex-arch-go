@@ -10,6 +10,7 @@ services:
       env_file:
         - dbcredentials.env
       volumes:
+        - ./initdb.sh:/docker-entrypoint-initdb.d/initdb.sh
         - ./data/volumes/myproject/auth-postgres:/var/lib/postgresql/data/
       networks:
         - docker-postgres

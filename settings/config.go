@@ -18,6 +18,7 @@ type (
 		DBUser                 string `mapstructure:"POSTGRES_USER"`
 		DBPass                 string `mapstructure:"POSTGRES_PASSWORD"`
 		DBName                 string `mapstructure:"POSTGRES_DB"`
+		DBSchema               string `mapstructure:"POSTGRES_SCHEMA"`
 		AccessTokenExpiryHour  int    `mapstructure:"ACCESS_TOKEN_EXPIRY_HOUR"`
 		RefreshTokenExpiryHour int    `mapstructure:"REFRESH_TOKEN_EXPIRY_HOUR"`
 		AccessTokenSecret      string `mapstructure:"ACCESS_TOKEN_SECRET"`
@@ -76,6 +77,7 @@ func SetConfig() {
 			AppConfig.DBUser = os.Getenv("POSTGRES_USER")
 			AppConfig.DBPass = os.Getenv("POSTGRES_PASSWORD")
 			AppConfig.DBName = os.Getenv("POSTGRES_DB")
+			AppConfig.DBSchema = os.Getenv("POSTGRES_SCHEMA")
 			AppConfig.AccessTokenExpiryHour = ConvertToInt(os.Getenv("ACCESS_TOKEN_EXPIRY_HOUR"))
 			AppConfig.RefreshTokenExpiryHour = ConvertToInt(os.Getenv("REFRESH_TOKEN_EXPIRY_HOUR"))
 			AppConfig.AccessTokenSecret = os.Getenv("ACCESS_TOKEN_SECRET")

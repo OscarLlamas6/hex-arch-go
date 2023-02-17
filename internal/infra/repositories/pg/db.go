@@ -2,6 +2,7 @@ package pg
 
 import (
 	"errors"
+	"fmt"
 	"log"
 	"sync"
 	"time"
@@ -22,7 +23,7 @@ var tables = []interface{}{
 	&entity.Expense{},
 }
 
-func ConnectDB() (*gorm.DB, error) {
+func connectDB() *gorm.DB {
 
 	var err error
 
@@ -48,7 +49,12 @@ func ConnectDB() (*gorm.DB, error) {
 		}
 	})
 
-	return db, err
+	if err != nil {
+		fmt.Println(err)
+		return nil
+	}
+
+	return db
 }
 
 func runMigrations() {

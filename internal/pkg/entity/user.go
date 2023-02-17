@@ -1,6 +1,11 @@
 package entity
 
-import "time"
+import (
+	"fmt"
+	"time"
+
+	"github.com/OscarLlamas6/hex-arch-go/settings"
+)
 
 type (
 
@@ -16,3 +21,7 @@ type (
 		DeletedAt *time.Time // Cuando se borro el registro
 	}
 )
+
+func (User) TableName() string {
+	return fmt.Sprintf("%s.users", settings.AppConfig.DBSchema)
+}

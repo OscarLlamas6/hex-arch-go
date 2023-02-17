@@ -6,6 +6,5 @@ postgres
 ./docker_postgres_init.sql/
 .env
 *.env
-.env*
 node_modules
 data
