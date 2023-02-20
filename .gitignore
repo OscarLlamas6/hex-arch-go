@@ -8,3 +8,4 @@ postgres
 *.env
 node_modules
 data
+firestore_data

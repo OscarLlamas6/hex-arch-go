@@ -15,6 +15,29 @@ services:
       networks:
         - docker-postgres
 
+    firestore:
+      image: firestore
+      build:
+        context: ./firestore_utils/
+        dockerfile: Dockerfile.Firestore
+      ports:
+        - 4000:4000
+        - 8200:8200
+        - 8085:8085
+        - 5001:5001
+        - 5005:5005
+      environment:
+        - FIRESTORE_PORT=8200
+        - FIRESTORE_EMULATOR_HOST="localhost:8200"
+        - PUBSUB_EMULATOR_HOST="localhost:8085"
+        - GCLOUD-PROJECT-NAME="dummy-project"
+      volumes:
+        - ./firestore_data/firestore.indexes.json:/firebase/firestore.indexes.json
+        - ./firestore_utils/firestore.rules:/firebase.rules
+        - ./firestore_utils/functions:/firebase/functions
+      networks:
+        - docker-postgres
+
 networks:
   docker-postgres:
     driver: bridge
