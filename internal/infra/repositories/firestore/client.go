@@ -11,6 +11,8 @@ import (
 	firestore "cloud.google.com/go/firestore"
 	"github.com/OscarLlamas6/hex-arch-go/settings"
 	logger "github.com/sirupsen/logrus"
+	"golang.org/x/oauth2/google"
+	"google.golang.org/api/option"
 )
 
 type (
@@ -39,7 +41,10 @@ func NewFirestoreClient() *client {
 				break
 			}
 			time.Sleep(3 * time.Second)
-			cli, err = firestore.NewClient(ctx, settings.AppConfig.FirestoreProject)
+
+			// CREATING FIRESTORE CLIENT FOR FIREBASE EMULATOR!!!!!!!!!!!!!!!!!
+
+			cli, err = firestore.NewClient(ctx, settings.AppConfig.FirestoreProject, option.WithCredentials(&google.Credentials{ProjectID: settings.AppConfig.FirestoreProject}))
 			if err != nil {
 				fmt.Println(err.Error())
 				logger.Info("Retrying in 3 seconds...")
