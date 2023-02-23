@@ -9,3 +9,4 @@ postgres
 node_modules
 data
 firestore_data
+/tmp

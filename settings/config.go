@@ -19,6 +19,8 @@ type (
 		DBPass                 string `mapstructure:"POSTGRES_PASSWORD"`
 		DBName                 string `mapstructure:"POSTGRES_DB"`
 		DBSchema               string `mapstructure:"POSTGRES_SCHEMA"`
+		FirestoreHost          string `mapstructure:"FIRESTORE_EMULATOR_HOST"`
+		FirestoreProject       string `mapstructure:"FIRESTORE_PROJECT"`
 		AccessTokenExpiryHour  int    `mapstructure:"ACCESS_TOKEN_EXPIRY_HOUR"`
 		RefreshTokenExpiryHour int    `mapstructure:"REFRESH_TOKEN_EXPIRY_HOUR"`
 		AccessTokenSecret      string `mapstructure:"ACCESS_TOKEN_SECRET"`
@@ -47,7 +49,11 @@ func ConvertToInt(stringNumber string) int {
 }
 
 func AskForEnv() {
-	viper.SetConfigFile(".env")
+	viper.AddConfigPath(".")
+
+	viper.SetConfigName("app")
+
+	viper.SetConfigType("env")
 
 	err := viper.ReadInConfig()
 	if err != nil {
@@ -78,6 +84,8 @@ func SetConfig() {
 			AppConfig.DBPass = os.Getenv("POSTGRES_PASSWORD")
 			AppConfig.DBName = os.Getenv("POSTGRES_DB")
 			AppConfig.DBSchema = os.Getenv("POSTGRES_SCHEMA")
+			AppConfig.FirestoreHost = os.Getenv("FIRESTORE_EMULATOR_HOST")
+			AppConfig.FirestoreProject = os.Getenv("FIRESTORE_PROJECT")
 			AppConfig.AccessTokenExpiryHour = ConvertToInt(os.Getenv("ACCESS_TOKEN_EXPIRY_HOUR"))
 			AppConfig.RefreshTokenExpiryHour = ConvertToInt(os.Getenv("REFRESH_TOKEN_EXPIRY_HOUR"))
 			AppConfig.AccessTokenSecret = os.Getenv("ACCESS_TOKEN_SECRET")
