@@ -19,8 +19,8 @@ var onceDBLoad sync.Once
 
 var tables = []interface{}{
 	&entity.User{},
-	&entity.Deposit{},
-	&entity.Expense{},
+	// &entity.Deposit{},
+	// &entity.Expense{},
 }
 
 func connectDB() *gorm.DB {
@@ -68,4 +68,5 @@ func runMigrations() {
 	}
 
 	logger.Info("Migrations ran successfully :P")
+	fmt.Println("Migrations ran successfully :P")
 }

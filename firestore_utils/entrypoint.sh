@@ -10,4 +10,4 @@ echo "Launching emulator with following firebase.json config file"
 cat firebase.json
 
 npm --prefix ./functions install
-firebase emulators:start
+firebase emulators:start --import=exported-dev-data --export-on-exit=exported-dev-data

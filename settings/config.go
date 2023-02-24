@@ -21,6 +21,10 @@ type (
 		DBSchema               string `mapstructure:"POSTGRES_SCHEMA"`
 		FirestoreHost          string `mapstructure:"FIRESTORE_EMULATOR_HOST"`
 		FirestoreProject       string `mapstructure:"FIRESTORE_PROJECT"`
+		CouchDBHost            string `mapstructure:"COUCH_HOST"`
+		CouchDBPort            string `mapstructure:"COUCH_PORT"`
+		CouchDBUser            string `mapstructure:"COUCH_USER"`
+		CouchDBPass            string `mapstructure:"COUCH_PASSWORD"`
 		AccessTokenExpiryHour  int    `mapstructure:"ACCESS_TOKEN_EXPIRY_HOUR"`
 		RefreshTokenExpiryHour int    `mapstructure:"REFRESH_TOKEN_EXPIRY_HOUR"`
 		AccessTokenSecret      string `mapstructure:"ACCESS_TOKEN_SECRET"`
@@ -86,6 +90,10 @@ func SetConfig() {
 			AppConfig.DBSchema = os.Getenv("POSTGRES_SCHEMA")
 			AppConfig.FirestoreHost = os.Getenv("FIRESTORE_EMULATOR_HOST")
 			AppConfig.FirestoreProject = os.Getenv("FIRESTORE_PROJECT")
+			AppConfig.CouchDBHost = os.Getenv("COUCH_HOST")
+			AppConfig.CouchDBPort = os.Getenv("COUCH_PORT")
+			AppConfig.CouchDBUser = os.Getenv("COUCH_USER")
+			AppConfig.CouchDBPass = os.Getenv("COUCH_PASSWORD")
 			AppConfig.AccessTokenExpiryHour = ConvertToInt(os.Getenv("ACCESS_TOKEN_EXPIRY_HOUR"))
 			AppConfig.RefreshTokenExpiryHour = ConvertToInt(os.Getenv("REFRESH_TOKEN_EXPIRY_HOUR"))
 			AppConfig.AccessTokenSecret = os.Getenv("ACCESS_TOKEN_SECRET")

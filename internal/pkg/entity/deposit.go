@@ -1,10 +1,7 @@
 package entity
 
 import (
-	"fmt"
 	"time"
-
-	"github.com/OscarLlamas6/hex-arch-go/settings"
 )
 
 type (
@@ -19,6 +16,6 @@ type (
 	}
 )
 
-func (Deposit) TableName() string {
-	return fmt.Sprintf("%s.deposits", settings.AppConfig.DBSchema)
-}
+// func (Deposit) TableName() string {
+// 	return fmt.Sprintf("%s.deposits", settings.AppConfig.DBSchema)
+// }

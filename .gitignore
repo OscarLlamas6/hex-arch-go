@@ -10,3 +10,7 @@ node_modules
 data
 firestore_data
 /tmp
+dbdata
+/dbdata
+db_data
+/db_data

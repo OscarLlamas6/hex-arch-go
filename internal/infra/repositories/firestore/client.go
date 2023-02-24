@@ -2,7 +2,6 @@ package firestore
 
 import (
 	"context"
-	"errors"
 	"fmt"
 	"log"
 	"sync"
@@ -11,8 +10,6 @@ import (
 	firestore "cloud.google.com/go/firestore"
 	"github.com/OscarLlamas6/hex-arch-go/settings"
 	logger "github.com/sirupsen/logrus"
-	"golang.org/x/oauth2/google"
-	"google.golang.org/api/option"
 )
 
 type (
@@ -26,6 +23,11 @@ var (
 	firestoreClient     *client
 )
 
+const (
+	ExpensesCollection = "expenses"
+	DepositsCollection = "deposits"
+)
+
 func NewFirestoreClient() *client {
 
 	var err error
@@ -37,14 +39,13 @@ func NewFirestoreClient() *client {
 		for {
 			if i >= 30 {
 				log.Fatal("Error connecting to Firestore")
-				err = errors.New("Error connecting to Firestore")
-				break
+				panic("Error connecting to Firestore")
 			}
 			time.Sleep(3 * time.Second)
 
 			// CREATING FIRESTORE CLIENT FOR FIREBASE EMULATOR!!!!!!!!!!!!!!!!!
 
-			cli, err = firestore.NewClient(ctx, settings.AppConfig.FirestoreProject, option.WithCredentials(&google.Credentials{ProjectID: settings.AppConfig.FirestoreProject}))
+			cli, err = firestore.NewClient(ctx, settings.AppConfig.FirestoreProject)
 			if err != nil {
 				fmt.Println(err.Error())
 				logger.Info("Retrying in 3 seconds...")
@@ -52,7 +53,7 @@ func NewFirestoreClient() *client {
 				continue
 			} else {
 				logger.Info("Firestore client configured correctly :D")
-
+				fmt.Println("Firestore client configured correctly :D")
 			}
 			break
 		}
@@ -64,4 +65,11 @@ func NewFirestoreClient() *client {
 	}
 
 	return firestoreClient
+}
+
+// Add document method for Firestore client
+func (c *client) AddDoc(ctx context.Context, collection string, data interface{}) error {
+	_, _, err := c.cli.Collection(collection).Add(ctx, data)
+
+	return err
 }
