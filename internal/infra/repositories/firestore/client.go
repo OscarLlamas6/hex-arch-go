@@ -53,7 +53,6 @@ func NewFirestoreClient() *client {
 				continue
 			} else {
 				logger.Info("Firestore client configured correctly :D")
-				fmt.Println("Firestore client configured correctly :D")
 			}
 			break
 		}

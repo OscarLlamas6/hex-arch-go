@@ -19,11 +19,9 @@ var onceDBLoad sync.Once
 
 var tables = []interface{}{
 	&entity.User{},
-	// &entity.Deposit{},
-	// &entity.Expense{},
 }
 
-func connectDB() *gorm.DB {
+func connectDB() error {
 
 	var err error
 
@@ -41,32 +39,33 @@ func connectDB() *gorm.DB {
 				logger.Info("Retrying in 3 seconds...")
 				i++
 				continue
-			} else {
-				runMigrations()
-				logger.Info("Connected to database :D")
 			}
+			err = runMigrations()
+			if err != nil {
+				logger.Error(err)
+				break
+			}
+
+			logger.Info("Connected to database :D")
 			break
 		}
 	})
 
-	if err != nil {
-		fmt.Println(err)
-		return nil
-	}
-
-	return db
+	return err
 }
 
-func runMigrations() {
+func runMigrations() error {
 
 	for _, table := range tables {
 		err := db.AutoMigrate(table)
 		if err != nil {
 			logger.Info("Error while running migration")
-			return
+			return err
 		}
 	}
 
 	logger.Info("Migrations ran successfully :P")
 	fmt.Println("Migrations ran successfully :P")
+
+	return nil
 }

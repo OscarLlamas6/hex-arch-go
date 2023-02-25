@@ -1,6 +1,10 @@
 package pg
 
-import "gorm.io/gorm"
+import (
+	"log"
+
+	"gorm.io/gorm"
+)
 
 type (
 	client struct {
@@ -9,8 +13,15 @@ type (
 )
 
 // Return new client instance
-func NewClient() *client {
-	return &client{db: connectDB()}
+func NewClient() (*client, error) {
+
+	err := connectDB()
+	if err != nil {
+		log.Fatal(err)
+		return nil, err
+	}
+
+	return &client{db: db}, nil
 }
 
 // Create new register

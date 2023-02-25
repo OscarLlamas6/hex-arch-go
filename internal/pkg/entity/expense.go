@@ -15,7 +15,3 @@ type (
 		Date        time.Time
 	}
 )
-
-// func (Expense) TableName() string {
-// 	return fmt.Sprintf("%s.expenses", settings.AppConfig.DBSchema)
-// }
