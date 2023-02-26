@@ -5,22 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="33e622c7-3ac5-4b23-b881-830b8b813736" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/internal/pkg/ports/deposit.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/internal/pkg/ports/expense.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/internal/pkg/ports/user.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/infra/api/server.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/infra/api/server.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/infra/repositories/couchdb/client.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/infra/repositories/couchdb/client.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/infra/repositories/couchdb/db.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/infra/repositories/couchdb/db.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/infra/repositories/couchdb/dns.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/infra/repositories/couchdb/dns.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/infra/repositories/firestore/client.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/infra/repositories/firestore/client.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internal/pkg/service/user/user.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/go.sum" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/internal/infra/repositories/pg/client.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/infra/repositories/pg/client.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/infra/repositories/pg/db.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/infra/repositories/pg/db.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/infra/repositories/pg/dns.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/infra/repositories/pg/dns.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/pkg/entity/credentials.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/pkg/entity/credentials.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/pkg/entity/deposit.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/pkg/entity/deposit.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/pkg/entity/expense.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/pkg/entity/expense.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/internal/pkg/entity/user.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/pkg/entity/user.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/pkg/ports/user.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/pkg/ports/user.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/main.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/settings/config.go" beforeDir="false" afterPath="$PROJECT_DIR$/settings/config.go" afterDir="false" />
     </list>
@@ -69,7 +60,7 @@
     "node.js.detected.package.eslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "configurable.group.language"
+    "settings.editor.selected.configurable": "terminal"
   }
 }]]></component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />

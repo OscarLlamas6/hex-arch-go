@@ -28,3 +28,7 @@ func NewClient() (*client, error) {
 func (c *client) Create(value interface{}) error {
 	return c.db.Create(value).Error
 }
+
+func (c *client) First(out interface{}, conditions ...interface{}) error {
+	return c.db.First(out, conditions...).Error
+}

@@ -14,7 +14,7 @@ type (
 		ID        int
 		Name      string
 		Lastname  string
-		Email     string
+		Email     string `gorm:"unique"`
 		Password  string
 		CreatedAt *time.Time // Cuando se creo el registro
 		UpdatedAt *time.Time // Cuando se actualizo el registro
