@@ -25,6 +25,7 @@ type (
 		CouchDBPort            string `mapstructure:"COUCHDB_PORT"`
 		CouchDBUser            string `mapstructure:"COUCHDB_USER"`
 		CouchDBPass            string `mapstructure:"COUCHDB_PASSWORD"`
+		CouchDBName            string `mapstructure:"COUCHDB_NAME"`
 		AccessTokenExpiryHour  int    `mapstructure:"ACCESS_TOKEN_EXPIRY_HOUR"`
 		RefreshTokenExpiryHour int    `mapstructure:"REFRESH_TOKEN_EXPIRY_HOUR"`
 		AccessTokenSecret      string `mapstructure:"ACCESS_TOKEN_SECRET"`
@@ -94,6 +95,7 @@ func SetConfig() {
 			AppConfig.CouchDBPort = os.Getenv("COUCHDB_PORT")
 			AppConfig.CouchDBUser = os.Getenv("COUCHDB_USER")
 			AppConfig.CouchDBPass = os.Getenv("COUCHDB_PASSWORD")
+			AppConfig.CouchDBName = os.Getenv("COUCHDB_NAME")
 			AppConfig.AccessTokenExpiryHour = ConvertToInt(os.Getenv("ACCESS_TOKEN_EXPIRY_HOUR"))
 			AppConfig.RefreshTokenExpiryHour = ConvertToInt(os.Getenv("REFRESH_TOKEN_EXPIRY_HOUR"))
 			AppConfig.AccessTokenSecret = os.Getenv("ACCESS_TOKEN_SECRET")

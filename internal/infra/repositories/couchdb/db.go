@@ -4,6 +4,7 @@ import (
 	"context"
 	"errors"
 	"fmt"
+	"github.com/OscarLlamas6/hex-arch-go/settings"
 	"sync"
 	"time"
 
@@ -47,15 +48,15 @@ func connectDB() error {
 				break
 			}
 
-			if !slicesUtils.Contains(allDBs, "expenses") {
-				err = couchDBClient.CreateDB(context.TODO(), "expenses")
+			if !slicesUtils.Contains(allDBs, settings.AppConfig.CouchDBName) {
+				err = couchDBClient.CreateDB(context.TODO(), settings.AppConfig.CouchDBName)
 				if err != nil {
 					fmt.Println(err)
 					break
 				}
 			}
 
-			couchDB = couchDBClient.DB(context.TODO(), "expenses")
+			couchDB = couchDBClient.DB(context.TODO(), settings.AppConfig.CouchDBName)
 
 			logger.Info("CouchDB connected successfully :D")
 			break
