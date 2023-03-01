@@ -5,15 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="33e622c7-3ac5-4b23-b881-830b8b813736" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/internal/pkg/service/user/user.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/go.sum" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/infra/repositories/pg/client.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/infra/repositories/pg/client.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/pkg/entity/user.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/pkg/entity/user.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/pkg/ports/user.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/pkg/ports/user.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/main.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/settings/config.go" beforeDir="false" afterPath="$PROJECT_DIR$/settings/config.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,7 +48,7 @@
     "WebServerToolWindowFactoryState": "false",
     "go.import.settings.migrated": "true",
     "go.sdk.automatically.set": "true",
-    "last_opened_file_path": "C:/Users/oscar/Desktop/GO REPOS/couchDB-Go",
+    "last_opened_file_path": "C:/Users/oscar/Desktop/GO REPOS/go-monorepo",
     "node.js.detected.package.eslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
@@ -80,5 +72,16 @@
   </component>
   <component name="VgoProject">
     <settings-migrated>true</settings-migrated>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/internal/pkg/service/user/user.go</url>
+          <line>47</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

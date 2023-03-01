@@ -1,9 +1,9 @@
 package ports
 
-import "github.com/OscarLlamas6/hex-arch-go/internal/pkg/entity"
+import "context"
 
 type (
 	DepositRepository interface {
-		AddDeposit(deposit *entity.Deposit) error
+		AddDeposit(ctx context.Context, doc interface{}) error
 	}
 )
