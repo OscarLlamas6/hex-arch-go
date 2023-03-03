@@ -25,5 +25,7 @@ func RunServer() {
 		)
 	})
 
+	RegisterRoutes(server)
+
 	server.Run(":3006")
 }
