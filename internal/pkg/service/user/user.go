@@ -2,12 +2,14 @@ package user
 
 import (
 	"fmt"
+	"net/mail"
+	"time"
+
 	"github.com/OscarLlamas6/hex-arch-go/internal/pkg/entity"
 	"github.com/OscarLlamas6/hex-arch-go/internal/pkg/ports"
 	"github.com/OscarLlamas6/hex-arch-go/settings"
 	"github.com/dgrijalva/jwt-go"
 	"golang.org/x/crypto/bcrypt"
-	"net/mail"
 )
 
 type (
@@ -73,6 +75,8 @@ func createToken(user *entity.User) (string, error) {
 	claims["userID"] = user.ID
 	claims["userName"] = user.Name
 	claims["userEmail"] = user.Email
+	claims["role"] = "standar"
+	claims["exp"] = time.Hour * 24
 
 	jwtToken := jwt.NewWithClaims(jwt.SigningMethodHS256, claims)
 	strToken, err := jwtToken.SignedString([]byte(settings.AppConfig.JWTKey))
