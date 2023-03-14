@@ -26,7 +26,7 @@ func Authenticate() gin.HandlerFunc {
 		}
 
 		setClaims(c, jwtToken)
-
+		c.Next()
 	}
 }
 

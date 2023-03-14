@@ -1,8 +1,7 @@
 package expense
 
 import (
-	"context"
-
+	"github.com/OscarLlamas6/hex-arch-go/internal/pkg/entity"
 	"github.com/OscarLlamas6/hex-arch-go/internal/pkg/ports"
 )
 
@@ -18,6 +17,6 @@ func NewService(repo ports.ExpenseRepository) *Service {
 	}
 }
 
-func (s *Service) AddExpense(ctx context.Context, doc interface{}) error {
-	return s.repo.AddExpense(ctx, doc)
+func (s *Service) AddExpense(expense *entity.Expense) error {
+	return s.repo.AddExpense(expense)
 }

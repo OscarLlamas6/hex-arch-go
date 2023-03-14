@@ -1,8 +1,7 @@
 package deposit
 
 import (
-	"context"
-
+	"github.com/OscarLlamas6/hex-arch-go/internal/pkg/entity"
 	"github.com/OscarLlamas6/hex-arch-go/internal/pkg/ports"
 )
 
@@ -18,6 +17,6 @@ func NewService(repo ports.DepositRepository) *Service {
 	}
 }
 
-func (s *Service) AddDeposit(ctx context.Context, doc interface{}) error {
-	return s.repo.AddDeposit(ctx, doc)
+func (s *Service) AddDeposit(deposit *entity.Deposit) error {
+	return s.repo.AddDeposit(deposit)
 }

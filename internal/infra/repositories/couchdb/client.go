@@ -3,6 +3,8 @@ package couchdb
 import (
 	"context"
 	"fmt"
+
+	"github.com/OscarLlamas6/hex-arch-go/internal/pkg/entity"
 	"github.com/go-kivik/kivik/v3"
 	"github.com/lithammer/shortuuid"
 )
@@ -35,20 +37,22 @@ func (c *Client) AddDoc(ctx context.Context, id string, doc interface{}) error {
 	return nil
 }
 
-func (c *Client) AddExpense(ctx context.Context, doc interface{}) error {
+func (c *Client) AddExpense(expense *entity.Expense) error {
 
 	uuid := shortuuid.New()
+	ctx := context.Background()
 	expensesID := fmt.Sprintf("expenses-%s", uuid)
 
-	err := c.AddDoc(ctx, expensesID, doc)
+	err := c.AddDoc(ctx, expensesID, expense)
 	return err
 }
 
-func (c *Client) AddDeposit(ctx context.Context, doc interface{}) error {
+func (c *Client) AddDeposit(deposit *entity.Deposit) error {
 
 	uuid := shortuuid.New()
+	ctx := context.Background()
 	expensesID := fmt.Sprintf("deposits-%s", uuid)
 
-	err := c.AddDoc(ctx, expensesID, doc)
+	err := c.AddDoc(ctx, expensesID, deposit)
 	return err
 }

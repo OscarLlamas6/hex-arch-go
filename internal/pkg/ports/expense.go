@@ -1,9 +1,15 @@
 package ports
 
-import "context"
+import (
+	"github.com/OscarLlamas6/hex-arch-go/internal/pkg/entity"
+)
 
 type (
 	ExpenseRepository interface {
-		AddExpense(ctx context.Context, doc interface{}) error
+		AddExpense(expense *entity.Expense) error
+	}
+
+	ExpenseService interface {
+		AddExpense(expense *entity.Expense) error
 	}
 )
